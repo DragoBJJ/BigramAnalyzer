@@ -21,12 +21,12 @@ namespace Bigram
     class BigramAnalyzer
     {
 
-        private readonly Dictionary<string, int> bigram;
+        private readonly Dictionary<string, uint> bigram;
         private readonly  string[] words;
         public BigramAnalyzer(IEnumerable<string> words)
         {
             this.words = words.ToArray();
-            this.bigram = new Dictionary<string, int>();
+            this.bigram = new();
         }
         public uint GetCount(string word1, string word2)
         {
@@ -47,8 +47,8 @@ namespace Bigram
                 }
 
             }
-          
-            uint res = (uint)(bigram.TryGetValue($"{word1} {word2}", out int result) ? result : 0);
+
+            uint res = bigram.TryGetValue($"{word1} {word2}", out uint result) ? result : 0;
             this.bigram.Clear();
             return res;
         }
