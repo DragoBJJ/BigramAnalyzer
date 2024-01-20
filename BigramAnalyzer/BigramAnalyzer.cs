@@ -26,12 +26,10 @@ namespace Bigram
         public BigramAnalyzer(IEnumerable<string> words)
         {
             this.words = words.ToArray();
-            this.bigram = new();
+            this.bigram = new Dictionary<string, uint>();
         }
         public uint GetCount(string word1, string word2)
         {
-
-
 
             for (int i = 0; i < this.words.Length - 1; i++)
             {
