@@ -9,10 +9,10 @@ which may be a more lightweight operation.
 ARRAY OF STRINGS - In terms of performance, arrays are usually faster at accessing elements using an index because their elements are stored continuously in memory.
 
 
-Na podstawie kodu, można wyróżnić następujące klasy i design patterns:
-Klasy
-MySqlDataBase - klasa reprezentująca bazę danych MySQL.
-DataBaseLoggerStrategy - klasa reprezentująca strategię logowania do bazy danych.
-FileLoggerStrategy - klasa reprezentująca strategię logowania do pliku.
-EventLoggerStrategy - klasa reprezentująca strategię logowania zdarzeń systemowych.
-LoggerContext - klasa reprezentująca kontekst logowania, który zarządza strategiami logowania.
+Based on the code, the following classes and design patterns can be distinguished:
+Classes
+MySqlDataBase - a class representing the MySQL database.
+DataBaseLoggerStrategy - a class representing the database logging strategy.
+FileLoggerStrategy - a class representing a file logging strategy.
+EventLoggerStrategy - a class representing a strategy for logging system events.
+LoggerContext - a class representing a logging context that manages logging strategies.
