@@ -17,11 +17,11 @@ namespace Bigram
         {
             this.PairsOfWords = new Dictionary<string, uint>();
 
-            SubtotalSpeeches(words);
+            SubtotalPairsOfWords(words);
 
         }
 
-        private void SubtotalSpeeches(IEnumerable<string> words)
+        private void SubtotalPairsOfWords(IEnumerable<string> words)
         {
             string[] wordsArray = words.ToArray();
        
