@@ -12,19 +12,20 @@ namespace Bigram
     class BigramAnalyzer
     {
 
-        private readonly Dictionary<string, uint> bigram;
-        private readonly  string[] words;
+        private readonly Dictionary<string,uint> bigram;
         public BigramAnalyzer(IEnumerable<string> words)
         {
-            this.words = words.ToArray();
-            this.bigram = new Dictionary<string, uint>();
-        }
-        public uint GetCount(string word1, string word2)
-        {
+            string[] wordsArray = words.ToArray();
+            bigram = new Dictionary<string, uint>(wordsArray.Length / 2);
+            SubtotalSpeeches(wordsArray);
 
-            for (int i = 0; i < this.words.Length - 1; i++)
+        }
+
+        private  void SubtotalSpeeches(string[] wordsArray)
+        {
+            for (int i = 0; i < wordsArray.Length - 1; i++)
             {
-                string pair = $"{words[i]} {words[i+1]}";
+                string pair = $"{wordsArray[i]} {wordsArray[i + 1]}";
 
                 if (bigram.ContainsKey(pair))
                 {
@@ -36,10 +37,12 @@ namespace Bigram
                 }
 
             }
+        } 
+        public uint GetCount(string w1, string w2)
+        {
 
-            uint res = bigram.TryGetValue($"{word1} {word2}", out uint result) ? result : 0;
-            this.bigram.Clear();
-            return res;
+            return bigram.TryGetValue($"{w1} {w2}", out uint res) ? res: 0;
+             
         }
     }
 }
